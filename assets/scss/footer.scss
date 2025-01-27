@@ -1,0 +1,40 @@
+/*-- FOOTER --*/
+@use 'variables' as*;
+@use 'font';
+
+
+footer {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    height: 50px;
+    background-color: $footer-color;
+
+
+    .link-footer {
+
+        font-family: "FontTitle";
+
+        ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 15rem;
+            padding:80px;
+           
+        }
+
+        a {
+            text-decoration: none;
+            color: $background-color;
+
+            &:hover {
+                text-decoration: underline 1px;
+                text-decoration-color: $background-color;
+            }
+        }
+    }
+}
+

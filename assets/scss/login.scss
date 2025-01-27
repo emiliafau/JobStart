@@ -1,0 +1,31 @@
+@use 'variables' as *;
+@use 'font';
+
+form {
+    display: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px;
+}
+
+body {
+    background-color: $background-color;
+    min-height: 100vh; // Assurer que le body occupe toute la hauteur de la fenêtre
+    display: flex;
+    flex-direction: column; // Empile le header, le contenu, puis le footer
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    flex: 1; // Prend tout l'espace disponible entre le header et le footer
+}
+
+footer {
+    margin-top: auto; // Permet au footer de se coller au bas si le contenu est insuffisant
+}

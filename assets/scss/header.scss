@@ -1,0 +1,67 @@
+/*-- HEADER --*/
+@use 'variables';
+@use 'font';
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 60px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    
+    .logo img {
+        max-height: 150px;
+    }
+
+    .link-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-family: "FontTitle";
+
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0b2532;
+
+
+            &:hover {
+                text-decoration: underline 3px;
+                text-decoration-color: #2a88b6;
+            }
+        }
+    }
+}
+
+.connexion {
+    margin-left: auto;
+    font-family: "FontTitle";
+
+    a {
+        text-decoration: none;
+        color: #0b2532;
+
+
+        &:hover {
+            text-decoration: underline 3px;
+            text-decoration-color: #2a88b6;
+        }
+    }
+}
+
+.burger img {
+    width: 20%;
+    height: auto;
+    cursor: pointer;
+    display: none;
+}
+
+
+
