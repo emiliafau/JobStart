@@ -4,17 +4,56 @@
 
 {% block body %}
 <form action="{{ path('register_process') }}" method="post">
-    <h2>Inscription</h2>
+
+<h2>Inscription</h2>
+
+      <!-- Choix du type d'utilisateur avec une liste déroulante -->
+      <div>
+        <label for="user_type">Je suis un :</label>
+        <select id="user_type" name="user_type" required onchange="toggleFields(this.value)">
+            <option value="candidate">Candidat</option>
+            <option value="company">Entreprise</option>
+        </select>
+    </div>
+
+     <!-- Champs supplémentaires pour l'entreprise (masqués par défaut) -->
+     <div id="company_fields" style="display:none;">
+        <div>
+            <label for="company_name">Nom de l'entreprise :</label>
+            <input type="text" id="company_name" name="company_name" placeholder="Entrez le nom de l'entreprise">
+        </div>
+
+        <div>
+            <label for="siret">Numéro de SIRET :</label>
+            <input type="text" id="siret" name="siret" placeholder="Entrez le numéro de SIRET de l'entreprise">
+        </div>
+    </div>
+
+    <!-- Champs communs -->
     <div>
         <label for="username">Nom d'utilisateur :</label>
         <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
     </div>
+
     <div>
         <label for="password">Mot de passe :</label>
         <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
     </div>
-    <div>
+
+   <div>
         <button type="submit">S'inscrire</button>
     </div>
 </form>
+
+<script>
+    // Fonction pour afficher/masquer les champs en fonction du type choisi
+    function toggleFields(userType) {
+        if (userType === 'company') {
+            document.getElementById('company_fields').style.display = 'block'; // Affiche les champs entreprise
+        } else {
+            document.getElementById('company_fields').style.display = 'none'; // Masque les champs entreprise
+        }
+    }
+</script>
+
 {% endblock %}

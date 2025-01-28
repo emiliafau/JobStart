@@ -1,25 +1,33 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
 
 home:
-    path: /
-    controller: App\Controller\HomeController::index
+  path: /
+  controller: App\Controller\HomeController::index
 
 login:
-    path: /login
-    controller: App\Controller\HomeController::login
+  path: /login
+  controller: App\Controller\HomeController::login
 
 login_process:
-    path: /login_process
-    controller: App\Controller\HomeController::loginProcess
+  path: /login_process
+  controller: App\Controller\HomeController::loginProcess
 
 register:
-    path: /register
-    controller: App\Controller\HomeController::register
+  path: /register
+  controller: App\Controller\HomeController::register
 
 register_process:
-    path: /register_process
-    controller: App\Controller\HomeController::registerProcess
+  path: /register_process
+  controller: App\Controller\HomeController::registerProcess
+
+dashboard_company:
+  path: /dashboard_company
+  controller: App\Controller\HomeController::dashboardCompany
+
+dashboard_candidate:
+  path: /dashboard_candidate
+  controller: App\Controller\HomeController::dashboardCandidate
