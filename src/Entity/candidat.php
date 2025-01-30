@@ -8,23 +8,23 @@ use Doctrine\ORM\Mapping as ORM;
 class Candidat
 {   
      #[ORM\Id]
-     #[ORM\OneToOne(targetEntity: utilisateur::class, inversedBy: "candidat")]
+     #[ORM\OneToOne(targetEntity: Utilisateur::class, inversedBy: "candidat")]
      #[ORM\JoinColumn(name: "utilisateur_id", referencedColumnName: "id", onDelete: "CASCADE")]
     
-    private $utilisateur;
+    private ?Utilisateur $utilisateur = null;
 
     
      #[ORM\Column(type: "string", length: 255, unique: true)]
     
-    private $cv;
+    private ?string $cv = null;
 
     // Getter et setter pour $utilisateur
-    public function getUtilisateur():?utilisateur
+    public function getUtilisateur():?Utilisateur
     {
         return $this->utilisateur;
     }
 
-    public function setUtilisateur(?utilisateur $utilisateur): self
+    public function setUtilisateur(?Utilisateur $utilisateur): self
     {
         $this->utilisateur = $utilisateur;
 

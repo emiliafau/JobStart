@@ -5,15 +5,15 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-class utilisateur
+class Utilisateur
 {
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: "AUTO")]
     #[ORM\Column(type: "integer")]
     private $id;
 
-    #[ORM\Column(type: "string", length: 50)]
-    private $nom;
+    #[ORM\Column(type: "string", length: 50, nullable: true)]
+    private ?string $nom = null;
 
     #[ORM\Column(type: "string", length: 50)]
     private $prenom;
@@ -31,7 +31,16 @@ class utilisateur
     private $createdAt;
 
     #[ORM\Column(type: "string", length: 255, nullable: true)]
-    private $role = 'candidat';
+    private string $role;
+
+    #[ORM\OneToOne(mappedBy: "utilisateur", targetEntity: Candidat::class)]
+    private ?Candidat $candidat = null;
+
+    #[ORM\OneToOne(mappedBy: "utilisateur", targetEntity: Entreprise::class)]
+    private ?Entreprise $entreprise = null;  
+
+    public const ROLE_CANDIDAT = 'candidat';
+    public const ROLE_ENTREPRISE = 'entreprise';
 
     // Getter et setter pour $id
     public function getId(): ?int
@@ -111,6 +120,7 @@ class utilisateur
         return $this;
     }
 
+    // Getter et setter pour $role
     public function getRole(): ?string
     {
         return $this->role;
@@ -121,5 +131,38 @@ class utilisateur
         $this->role = $role;
         return $this;
     }
+
+    // Getter et setter pour l'entreprise
+
+    public function getEntreprise(): ?entreprise
+{
+    return $this->entreprise;
+}
+
+public function setEntreprise(?entreprise $entreprise): self
+{
+    $this->entreprise = $entreprise;
+
+    // Met à jour l'entité entreprise pour refléter l'association bidirectionnelle
+    if ($entreprise !== null && $entreprise->getUtilisateur() !== $this) {
+        $entreprise->setUtilisateur($this);
+    }
+
+    return $this;
+}
+
+// Getter et setter pour l'entreprise
+
+public function getCandidat(): ?candidat
+{
+    return $this->candidat;
+}
+
+public function setCandidat(?candidat $candidat): self
+{
+    $this->candidat = $candidat;
+    return $this;
+}
+
 }
 
