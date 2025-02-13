@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('build/icons/favicon.png') }}"> 
+</head>
+
+<body>
+<header>
+    <!--logo-->
+    <div class="logo">
+        <a href="{{ path('home') }}">
+            <img src="{{ asset('pictures/logo-jobstart.png') }}" alt="Logo jobstart">
+        </a>
+    </div>
+
+    <!--navigation-->
+    <nav class="link-header">
+
+        <ul>
+            <li><a href="{{ path('home') }}">Accueil</a></li>
+        </ul>
+    </nav>
+
+    <div class="connexion">
+        <a href="{{ path('login') }}">Connexion</a>
+    </div>
+
+
+    <!--menu-burger-->
+    <div class="burger" onclick="toggleMenu()">
+        <img src="{{ asset('build/icons/menu-burger.png') }}" alt="Menu Burger">
+    </div>
+</header>
+
+{% block body %}{% endblock %}
+    
+<footer>
+    <!--navigation-->
+    <nav class="link-footer">
+        <ul>
+            <li><a href="{{ path('privacy-policy') }}">Politique de confidentialité</a></li>
+            <li><a href="{{ path('contact') }}">Contact</a></li>
+            <li><a href="{{ path('terms-of-use') }}">Condition d'utilisation</a></li>
+            <li><a href="{{ path('legal-notice') }}">Mention légale</a></li>
+        </ul>
+    </nav>
+</footer>
+
+</body>
+</html>
+
+{% for message in app.flashes('error') %}
+    <div class="alert alert-danger">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+{% for message in app.flashes('info') %}
+    <div class="alert alert-info">
+        {{ message }}
+    </div>
+{% endfor %}

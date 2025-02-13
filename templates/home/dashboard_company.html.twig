@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon tableau de bord
+{% endblock %}
+
+{% block body %}
+	<div class="dashboard">
+
+		<div class="profil_company">
+			<h2>Mon profil</h2>
+			<li>
+				<strong>Nom de l'entreprise :</strong>
+			</li>
+			<li>
+				<strong>Numéro de SIRET :</strong>
+			</li>
+			<li>
+				<strong>Email :</strong>
+			</li>
+
+			<a href="{{ path('create_add') }}">Créer une annonce</a>
+		</div>
+		
+	</div>
+
+{% endblock %}

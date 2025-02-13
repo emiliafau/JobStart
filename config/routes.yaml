@@ -1,0 +1,47 @@
+controllers:
+  resource: ../src/Controller/
+  type: attribute
+
+home:
+  path: /
+  controller: App\Controller\HomeController::index
+
+login:
+  path: /login
+  controller: App\Controller\AuthentificationController::login
+
+login_process:
+  path: /login_process
+  controller: App\Controller\AuthentificationController::loginProcess
+
+register:
+  path: /register
+  controller: App\Controller\AuthentificationController::register
+
+register_process:
+  path: /register_process
+  controller: App\Controller\AuthentificationController::registerProcess
+
+password_forgot:
+  path: /password_forgot
+  controller: App\Controller\AuthentificationController::passwordForgot
+
+password_forgot_process:
+  path: /password_forgot_process
+  controller: App\Controller\AuthentificationController::passwordForgotProcess
+
+password_reset:
+  path: /password_reset
+  controller: App\Controller\AuthentificationController::passwordReset
+
+dashboard_company:
+  path: /dashboard_company
+  controller: App\Controller\HomeController::dashboardCompany
+
+dashboard_candidate:
+  path: /dashboard_candidate
+  controller: App\Controller\HomeController::dashboardCandidate
+
+create_add:
+  path: /create_add
+  controller: App\Controller\CompanyController::createAdd

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+    <form action="{{ path('register_process') }}" method="post">
+        <h2>Inscription</h2>
+    
+        <!-- Champs pour le candidat -->
+        <div id="candidate_fields">
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="nom" placeholder="Entrez votre nom">
+            </div>
+    
+            <div>
+                <label for="prenom">Prénom :</label>
+                <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom">
+            </div>
+        </div>
+    
+        <!-- Champs pour l'entreprise -->
+        <div id="company_fields">
+            <div>
+                <label for="numero_siret">Numéro de SIRET :</label>
+                <input type="text" id="siret" name="siret" placeholder="Entrez le numéro de SIRET">
+            </div>
+        </div>
+    
+        <div>
+            <label for="mail">Email :</label>
+            <input type="email" id="mail" name="mail" placeholder="Entrez votre email" required>
+        </div>
+    
+        <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+        </div>
+    
+        <div>
+            <label for="role">Rôle :</label>
+            <select name="role" id="role" required>
+                <option value="candidat">Candidat</option>
+                <option value="entreprise">Entreprise</option>
+            </select>
+        </div>
+    
+        <div>
+            <button type="submit">S'inscrire</button>
+        </div>
+    </form>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let roleSelect = document.getElementById("role");
+            let candidateFields = document.getElementById("candidate_fields");
+            let companyFields = document.getElementById("company_fields");
+    
+            function toggleFields() {
+                if (roleSelect.value === "entreprise") {
+                    candidateFields.style.display = "none";
+                    companyFields.style.display = "block";
+                } else {
+                    candidateFields.style.display = "block";
+                    companyFields.style.display = "none";
+                }
+            }
+    
+            roleSelect.addEventListener("change", toggleFields);
+    
+            // Exécuter la fonction une première fois pour afficher les bons champs au chargement
+            toggleFields();
+        });
+    </script>
+    
+{% endblock %}

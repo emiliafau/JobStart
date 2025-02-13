@@ -1,0 +1,24 @@
+@use 'variables'as*;
+@use 'font';
+
+body {
+  background-color: $background-color;
+}
+
+html, body {
+  height: 100%; // S'assurer que le HTML et le body occupent tout l'espace
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column; // Empile le header, le contenu, puis le footer
+}
+
+main {
+  flex: 1; // Prend tout l'espace disponible entre le header et le footer
+}
+
+
+
+
